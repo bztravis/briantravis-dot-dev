@@ -3,12 +3,12 @@ import HourHandIcon from '@/public/icons/HourHand.svg';
 import MinuteHandIcon from '@/public/icons/MinuteHand.svg';
 import styles from './Clock.module.scss';
 
-type Props = {};
-
-const clock = (props: Props) => {
+const Clock = () => {
   return (
     <div className={styles.container}>
-      <MinuteHand className={styles.hand} />
+      <div className={styles.hand}>
+        <MinuteHand />
+      </div>
       <HourHandIcon />
     </div>
   );
@@ -22,4 +22,4 @@ function MinuteHand() {
   );
 }
 
-export default clock;
+export default Clock;
