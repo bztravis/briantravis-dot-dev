@@ -1,3 +1,7 @@
+:root {
+  --ramp-primary: #e7f256;
+}
+
 body {
   margin: 0;
 }
