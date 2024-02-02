@@ -2,5 +2,29 @@
   width: 4rem;
   height: 4rem;
   border-radius: 2rem;
+  position: relative;
   background: var(--ramp-primary);
+
+  >.hand {
+    position: absolute;
+    left: 0;
+  }
+
+  .minuteHand {
+    margin-top: 17px;
+    margin-left: 16px;
+    animation: rotate 2s cubic-bezier(.4, .01, .1, 1.01) infinite;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform-origin: center;
+    transform: rotate(0);
+  }
+
+  100% {
+    transform-origin: center;
+    transform: rotate(360deg);
+  }
 }
