@@ -1,7 +1,12 @@
 :root {
   --ramp-primary: #e7f256;
+  --ramp-light: #dbdacb;
+  --ramp-faded: #f4f3ef;
+
+  --text-secondary: #494946;
 }
 
 body {
   margin: 0;
+  background: white;
 }

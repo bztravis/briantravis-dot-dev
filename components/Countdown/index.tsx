@@ -1,35 +1,30 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect, useCallback } from 'react';
-import {
-  format,
-  parse,
-  differenceInSeconds,
-  intervalToDuration,
-  formatDuration,
-} from 'date-fns';
+import { format, parse, intervalToDuration } from 'date-fns';
+import type { Duration } from 'date-fns';
 
 import styles from './Countdown.module.scss';
 
-const END_DATES = [new Date('May 13'), new Date('May 28')] as const;
+const END_DATES = [new Date('May 13, 2024'), new Date('May 28, 2024')] as const;
 const DATE_FORMAT_STR = 'MMM do';
 
 const Countdown = () => {
   const [endDate, setEndDate] = useState<(typeof END_DATES)[number]>(
     END_DATES[0]
   );
-  const [secRemaining, setSecRemaining] = useState(
-    differenceInSeconds(Date(), endDate)
-  );
 
   const getDuration = useCallback(() => {
-    return differenceInSeconds(Date(), endDate);
+    return intervalToDuration({ start: Date(), end: endDate });
   }, [endDate]);
 
+  const [duration, setDuration] = useState<Duration>(getDuration());
+
   useEffect(() => {
-    setSecRemaining(getDuration());
+    setDuration(getDuration());
     const interval = setInterval(() => {
-      setSecRemaining(getDuration());
+      setDuration(getDuration());
     }, 1000);
 
     return () => {
@@ -39,26 +34,32 @@ const Countdown = () => {
 
   return (
     <div className={styles.container}>
-      <h3>
-        {formatDuration(intervalToDuration({ start: 0, end: secRemaining }))}
-      </h3>
-      <p>Until </p>
-      <select
-        value={dateToReadable(endDate)}
-        onChange={(e) => {
-          setEndDate(parse(e.target.value, DATE_FORMAT_STR, new Date()));
-        }}
-      >
-        {END_DATES.map((date) => (
-          <option key={date.toISOString()}>{dateToReadable(date)}</option>
-        ))}
-      </select>
+      <h3>{durationToDisplay(duration)}</h3>
+      <div className={styles.until}>
+        <p>Until </p>
+        <select
+          value={dateToReadable(endDate)}
+          onChange={(e) => {
+            setEndDate(parse(e.target.value, DATE_FORMAT_STR, new Date()));
+          }}
+        >
+          {END_DATES.map((date) => (
+            <option key={date.toISOString()}>{dateToReadable(date)}</option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 
   function dateToReadable(date: Date) {
     return format(date, DATE_FORMAT_STR);
   }
+
+  function durationToDisplay(duration: Duration) {
+    return `${duration.months ?? 0} mon, ${duration.days ?? 0} days, ${
+      duration.hours ?? 0
+    } hr, ${duration.minutes ?? 0} min, ${duration.seconds ?? 0} sec`;
+  }
 };
 
-export default Countdown;
+export default dynamic(() => Promise.resolve(Countdown), { ssr: false });

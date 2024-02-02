@@ -2,7 +2,32 @@
   display: inline;
   text-align: center;
 
-  >p {
-    display: inline;
+  >.until {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    >p {
+      display: inline;
+      font-size: 20px;
+      color: var(--text-secondary);
+    }
+
+    >select {
+      height: 48px;
+      padding: 8px 12px;
+      border: var(--ramp-light) 1px solid;
+      border-radius: 0;
+      font-size: 20px;
+      font-family: inherit;
+      color: var(--text-secondary);
+      background: white;
+      transition: border 0.5s;
+
+      &:hover {
+        border-bottom: var(--text-secondary) 1px solid;
+      }
+    }
   }
 }

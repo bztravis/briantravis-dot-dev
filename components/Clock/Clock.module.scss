@@ -13,7 +13,8 @@
   .minuteHand {
     margin-top: 17px;
     margin-left: 16px;
-    animation: rotate 2s cubic-bezier(.4, .01, .1, 1.01) infinite;
+    animation: rotate 1s cubic-bezier(.4, .01, .1, 1.01) infinite;
+    animation-delay: 0.2s;
   }
 }
 
