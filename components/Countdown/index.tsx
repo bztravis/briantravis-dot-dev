@@ -1,7 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { format, parse } from 'date-fns';
+import { useState, useEffect, useCallback } from 'react';
+import {
+  format,
+  parse,
+  differenceInSeconds,
+  intervalToDuration,
+  formatDuration,
+} from 'date-fns';
+
 import styles from './Countdown.module.scss';
 
 const END_DATES = [new Date('May 13'), new Date('May 28')] as const;
@@ -11,26 +18,30 @@ const Countdown = () => {
   const [endDate, setEndDate] = useState<(typeof END_DATES)[number]>(
     END_DATES[0]
   );
-  const [duration, setDuration] = useState(0);
+  const [secRemaining, setSecRemaining] = useState(
+    differenceInSeconds(Date(), endDate)
+  );
 
-  const updateDuration = () => {
-    setDuration((prev) => prev + 1);
-  };
+  const getDuration = useCallback(() => {
+    return differenceInSeconds(Date(), endDate);
+  }, [endDate]);
 
   useEffect(() => {
-    updateDuration();
+    setSecRemaining(getDuration());
     const interval = setInterval(() => {
-      updateDuration();
+      setSecRemaining(getDuration());
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [getDuration]);
 
   return (
     <div className={styles.container}>
-      <h3>{duration}</h3>
+      <h3>
+        {formatDuration(intervalToDuration({ start: 0, end: secRemaining }))}
+      </h3>
       <p>Until </p>
       <select
         value={dateToReadable(endDate)}
