@@ -2,6 +2,11 @@
   display: inline;
   text-align: center;
 
+  >h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
   >.until {
     display: flex;
     justify-content: center;
@@ -23,10 +28,15 @@
       font-family: inherit;
       color: var(--text-secondary);
       background: white;
-      transition: border 0.5s;
+      transition: border 0.3s;
 
       &:hover {
         border-bottom: var(--text-secondary) 1px solid;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--text-secondary);
       }
     }
   }
