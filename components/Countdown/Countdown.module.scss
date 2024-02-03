@@ -17,10 +17,11 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
+    font-size: 20px;
+    font-weight: 400;
 
     >p {
       display: inline;
-      font-size: 20px;
       color: var(--text-secondary);
     }
 
@@ -29,8 +30,9 @@
       padding: 8px 12px;
       border: var(--ramp-light) 1px solid;
       border-radius: 0;
-      font-size: 20px;
+      font-size: inherit;
       font-family: inherit;
+      font-weight: inherit;
       color: var(--text-secondary);
       background: white;
       transition: border 0.3s;
