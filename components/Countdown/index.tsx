@@ -36,7 +36,7 @@ const Countdown = () => {
 
   return (
     <div className={styles.container}>
-      <h3>{durationToDisplay(duration)}</h3>
+      <DurationDisplay duration={duration} />
       <div className={styles.until}>
         <p>Until </p>
         <select
@@ -56,12 +56,27 @@ const Countdown = () => {
   function dateToReadable(date: Date) {
     return format(date, DATE_FORMAT_STR);
   }
-
-  function durationToDisplay(duration: Duration) {
-    return `${duration.months ?? 0} mon, ${duration.days ?? 0} days, ${
-      duration.hours ?? 0
-    } hr, ${duration.minutes ?? 0} min, ${duration.seconds ?? 0} sec`;
-  }
 };
+
+type DurationDisplayProps = {
+  duration: Duration;
+};
+
+function DurationDisplay({ duration }: DurationDisplayProps) {
+  return (
+    <h3>
+      {duration.months ?? 0}
+      <span className={styles.annotation}>mon</span>
+      {duration.days ?? 0}
+      <span className={styles.annotation}>days</span>
+      {duration.hours ?? 0}
+      <span className={styles.annotation}>hr</span>
+      {duration.minutes ?? 0}
+      <span className={styles.annotation}>min</span>
+      {duration.seconds ?? 0}
+      <span className={styles.annotation}>sec</span>
+    </h3>
+  );
+}
 
 export default dynamic(() => Promise.resolve(Countdown), { ssr: false });
