@@ -13,6 +13,7 @@ export default function Home() {
       <p>brian travis [dot] dev</p>
       <div>
         <h1>Coming</h1>
+        <br />
         <h1>Soon</h1>
       </div>
     </div>
