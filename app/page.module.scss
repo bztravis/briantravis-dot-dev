@@ -21,7 +21,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
-    animation: lg-phase-in 1s forwards;
+    animation: lg-phase-in 0.7s forwards;
 
     &:nth-of-type(2) {
       animation-delay: 0.1s;
@@ -45,7 +45,7 @@
       font-size: 64px;
       line-height: 64px;
       letter-spacing: -2px;
-      animation: sm-phase-in 1s forwards;
+      animation: sm-phase-in 0.7s forwards;
     }
   }
 }

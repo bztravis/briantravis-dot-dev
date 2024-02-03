@@ -7,9 +7,15 @@
 
   >h3 {
     margin: 0;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 500;
     color: var(--text-primary);
+
+    >.annotation {
+      margin: 0 8px 0 4px;
+      font-size: 24px;
+      color: var(--text-secondary);
+    }
   }
 
   >.until {
@@ -18,7 +24,7 @@
     align-items: center;
     gap: 12px;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 00;
 
     >p {
       display: inline;
