@@ -7,6 +7,10 @@
   --text-secondary: #707063;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 *::selection {
   background: #e7f256;
 }

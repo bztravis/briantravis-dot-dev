@@ -1,7 +1,42 @@
 .container {
+  width: 100dvw;
+  height: 100dvh;
   padding: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  >h1 {
-    font-family: 'Cabinet Grotesk';
+  >p {
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 256px;
+    font-weight: 800;
+    line-height: 256px;
+    letter-spacing: -10px;
+    background: linear-gradient(180deg, #D5D9D3 0%, #C2C8BF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: phase-in 1s forwards;
+  }
+}
+
+// @media screen (max-width) {}
+
+@keyframes phase-in {
+  from {
+    position: relative;
+    top: 192px;
+    height: 64px;
+    margin-bottom: 192px;
+  }
+
+  to {
+    position: relative;
+    top: 0px;
+    height: 256px;
   }
 }
