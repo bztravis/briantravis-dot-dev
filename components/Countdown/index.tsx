@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useState, useEffect, useCallback } from 'react';
 import { format, parse, intervalToDuration } from 'date-fns';
 import type { Duration } from 'date-fns';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 import styles from './Countdown.module.scss';
 
@@ -11,7 +12,8 @@ const END_DATES = [new Date('May 13, 2024'), new Date('May 28, 2024')] as const;
 const DATE_FORMAT_STR = 'MMM do';
 
 const Countdown = () => {
-  const [endDate, setEndDate] = useState<(typeof END_DATES)[number]>(
+  const [endDate, setEndDate] = useLocalStorage<(typeof END_DATES)[number]>(
+    'endDate',
     END_DATES[0]
   );
 

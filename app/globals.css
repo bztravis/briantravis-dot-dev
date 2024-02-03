@@ -11,10 +11,6 @@
   box-sizing: border-box;
 }
 
-*::selection {
-  background: #e7f256;
-}
-
 body {
   margin: 0;
   background: white;
