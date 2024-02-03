@@ -10,10 +10,22 @@ const CabinetGrotesk = localFont({
 export default function Home() {
   return (
     <div className={styleBuilder([styles.container, CabinetGrotesk.className])}>
-      <p>brian travis [dot] dev</p>
+      <div>
+        <p>brian travis [dot] dev</p>
+        <div className={styles.links}>
+          <a href='https://twitter.com/_briantravis' target='_blank'>
+            Twitter
+          </a>
+          <a href='https://www.linkedin.com/in/brian-z-travis/' target='_blank'>
+            LinkedIn
+          </a>
+          <a href='https://github.com/bztravis' target='_blank'>
+            GitHub
+          </a>
+        </div>
+      </div>
       <div>
         <h1>Coming</h1>
-        <br />
         <h1>Soon</h1>
       </div>
     </div>

@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  >p {
+  p {
     margin: 0;
   }
 
@@ -21,17 +21,52 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
-    animation: phase-in 1s forwards;
+    animation: lg-phase-in 1s forwards;
 
     &:nth-of-type(2) {
       animation-delay: 0.1s;
     }
   }
+
+  .links {
+    display: flex;
+    gap: 12px;
+
+    >a {
+      color: var(--text-secondary);
+    }
+  }
+
+  @media (max-width: 1100px),
+  (max-height: 900px) {
+    padding: 32px;
+
+    h1 {
+      font-size: 64px;
+      line-height: 64px;
+      letter-spacing: -2px;
+      animation: sm-phase-in 1s forwards;
+    }
+  }
 }
 
-// @media screen (max-width) {}
+@keyframes sm-phase-in {
+  from {
+    position: relative;
+    top: 64px;
+    height: 0px;
+    margin-bottom: 64px;
+  }
 
-@keyframes phase-in {
+  to {
+    position: relative;
+    top: 0px;
+    height: 64px;
+    opacity: 1;
+  }
+}
+
+@keyframes lg-phase-in {
   from {
     position: relative;
     top: 192px;
