@@ -3,7 +3,12 @@
   --ramp-light: #dbdacb;
   --ramp-faded: #f4f3ef;
 
-  --text-secondary: #494946;
+  --text-primary: #3c3c3c;
+  --text-secondary: #707063;
+}
+
+*::selection {
+  background: #e7f256;
 }
 
 body {
