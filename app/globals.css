@@ -19,3 +19,7 @@ body {
 select {
   appearance: none;
 }
+
+a {
+  color: var(--text-secondary);
+}
