@@ -41,6 +41,7 @@ const page = () => {
       <footer>
         <a
           href='https://github.com/bztravis/briantravis-dot-dev'
+          target='_blank'
           className={styles.addDateLink}
         >
           Add your start date
