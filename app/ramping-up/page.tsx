@@ -40,7 +40,7 @@ const page = () => {
       </main>
       <footer>
         <a
-          href='https://github.com/bztravis/briantravis-dot-dev'
+          href='https://github.com/bztravis/briantravis-dot-dev/tree/main/app/ramping-up'
           target='_blank'
           className={styles.addDateLink}
         >
