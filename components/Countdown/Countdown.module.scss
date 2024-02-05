@@ -15,10 +15,18 @@
     font-weight: 500;
     color: var(--text-primary);
 
+    @media (max-width: 500px) {
+      font-size: 24px;
+    }
+
     >.annotation {
       margin: 0 8px 0 4px;
       font-size: 24px;
       color: var(--text-secondary);
+
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -29,6 +37,10 @@
     gap: 12px;
     font-size: 20px;
     font-weight: 00;
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
 
     >p {
       display: inline;
