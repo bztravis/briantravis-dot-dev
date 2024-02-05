@@ -1,25 +1,28 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export default function useLocalStorage<T>(key: string, defaultValue: T) {
-  const [value, setValue] = useState<T>(getSavedValue(key, defaultValue));
+  const [value, setValue] = useState<T>(getSavedValue());
 
-  function getSavedValue(key: string, initialValue: T) {
+  function getSavedValue() {
     try {
       const item = localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : initialValue;
+      return item ? (JSON.parse(item) as T) : defaultValue;
     } catch (error) {
       console.error(error);
-      return initialValue;
+      return defaultValue;
     }
   }
 
-  const setSavedValue = useCallback((key: string, value: T) => {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
+  const setSavedValue = useCallback(
+    (value: T) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    [key]
+  );
 
   function eraseFromStorage() {
     try {
@@ -30,8 +33,8 @@ export default function useLocalStorage<T>(key: string, defaultValue: T) {
   }
 
   useEffect(() => {
-    setSavedValue(key, value);
-  }, [key, value, setSavedValue]);
+    setSavedValue(value);
+  }, [value, setSavedValue]);
 
   return [value, setValue, eraseFromStorage] as const;
 }
