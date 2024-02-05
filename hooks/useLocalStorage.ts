@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, SetStateAction } from 'react';
 
 export default function useLocalStorage<T>(key: string, defaultValue: T) {
-  const [value, setValue] = useState<T>(getSavedValue());
+  const [value, internalSetValue] = useState<T>(getSavedValue());
 
   function getSavedValue() {
     try {
@@ -13,9 +13,10 @@ export default function useLocalStorage<T>(key: string, defaultValue: T) {
     }
   }
 
-  const setSavedValue = useCallback(
-    (value: T) => {
+  const setValue = useCallback(
+    (value: SetStateAction<T>) => {
       try {
+        internalSetValue(value);
         localStorage.setItem(key, JSON.stringify(value));
       } catch (err) {
         console.error(err);
@@ -31,10 +32,6 @@ export default function useLocalStorage<T>(key: string, defaultValue: T) {
       console.error(err);
     }
   }
-
-  useEffect(() => {
-    setSavedValue(value);
-  }, [value, setSavedValue]);
 
   return [value, setValue, eraseFromStorage] as const;
 }
