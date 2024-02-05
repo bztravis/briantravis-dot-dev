@@ -34,8 +34,18 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div className={styles.container}>
-      <Clock />
-      <Countdown />
+      <main>
+        <Clock />
+        <Countdown />
+      </main>
+      <footer>
+        <a
+          href='https://github.com/bztravis/briantravis-dot-dev'
+          className={styles.addDateLink}
+        >
+          Add your start date
+        </a>
+      </footer>
     </div>
   );
 };

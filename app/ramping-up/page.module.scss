@@ -1,15 +1,30 @@
 .container {
-  width: 100dvw;
+  width: 100%;
   height: 100dvh;
   padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 48px;
 
   ::selection {
     color: var(--text-primary);
     background: #e7f256;
   }
+
+  >main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+  }
+
+  >footer {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
