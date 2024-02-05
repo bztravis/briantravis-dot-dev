@@ -10,6 +10,7 @@ import styles from './Countdown.module.scss';
 
 const END_DATES = [
   new Date('April 26, 2024'),
+  new Date('May 2, 2024'),
   new Date('May 13, 2024'),
   new Date('May 28, 2024'), // default
 ] as const;
