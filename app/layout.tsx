@@ -23,8 +23,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={CabinetGrotesk.className}>
         <div className={styles.container}>
-          <div>
-            <p>brian travis [dot] dev</p>
+          <header className={styles.header}>
+            <Link href='/' className={styles.rootLink}>
+              brian travis [dot] dev
+            </Link>
             <div className={styles.links}>
               <a href='https://twitter.com/_briantravis' target='_blank'>
                 Twitter
@@ -40,7 +42,7 @@ export default function RootLayout({
               </a>
               <Link href='/essays'>Writing</Link>
             </div>
-          </div>
+          </header>
           {children}
         </div>
       </body>

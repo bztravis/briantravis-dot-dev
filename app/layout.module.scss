@@ -3,6 +3,19 @@
   height: 100dvh;
   padding: 128px;
 
+  >.header {
+    margin-bottom: 32px;
+
+    >.rootLink {
+      text-decoration: none;
+      color: var(--text-primary);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   p {
     margin: 0;
   }
