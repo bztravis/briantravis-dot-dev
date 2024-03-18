@@ -1,0 +1,18 @@
+.container {
+  width: 100dvw;
+  height: 100dvh;
+  padding: 128px;
+
+  p {
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    gap: 12px;
+
+    >a {
+      color: var(--text-secondary);
+    }
+  }
+}

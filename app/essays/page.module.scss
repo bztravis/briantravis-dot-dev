@@ -1,4 +1,10 @@
 .pageContainer {
   display: flex;
   justify-content: center;
+
+  >.essayContainer {
+    width: 100%;
+    max-width: 512px;
+    background: red;
+  }
 }
