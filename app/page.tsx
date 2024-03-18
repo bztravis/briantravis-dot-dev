@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
           <a href='https://github.com/bztravis' target='_blank'>
             GitHub
           </a>
+          <Link href='/essays' target='_blank'>
+            Writing
+          </Link>
         </div>
       </div>
       <div>
