@@ -26,7 +26,7 @@ const Countdown = () => {
 
   const getDuration = useCallback(() => {
     const now = new Date();
-    const start = now > endDate ? endDate : now;
+    const start = now > new Date(endDate) ? endDate : now;
     return intervalToDuration({ start, end: endDate });
   }, [endDate]);
 
