@@ -15,6 +15,9 @@ export default function Home() {
           <a href='https://github.com/bztravis' target='_blank'>
             GitHub
           </a>
+          <a href='https://briantravisphoto.com' target='_blank'>
+            Portrait Photography
+          </a>
         </div>
       </div>
       <div>
